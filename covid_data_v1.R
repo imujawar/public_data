@@ -42,19 +42,7 @@ ldpkg(c("tidyverse",
 
 # set.seed(19)
 
-#SETTING DIRECTORY FOR INTERNATIONAL TASK FORCE - if James, defaults to his own account, otherwise appends users' name to the path
-if(Sys.getenv("USERNAME")=="kux9") {
-  dir.root <- "C:/Users/kux9/OneDrive - CDC/COVID19/"
-} else dir.root <- paste0("C:/Users/",Sys.getenv("USERNAME"),"/CDC/Fuller, James (CDC DDPHSIS CGH DGHP) (CTR) - COVID19/")
-dir.root #check
-
-#Define Directories
-dir.data <- paste0(dir.root,"Data/")
-#dir.export <- paste0(dir.root,"Percent Positive/")
-
-## read in Johns Hopkins Data
-#Import Country Time Series
-jhu <- read_excel(paste0(dir.data, "JHU Data/JHU Data by Country - Long.xlsx"))
+jhu <- read.csv("jhudata.csv"))
 jhu$Date <- as.Date(jhu$Date)
 
 View50(jhu)
